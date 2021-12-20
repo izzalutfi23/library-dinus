@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\{DashboardController, KategoriBukuController, PengunjungController, PinjamController, UserController, BukuController};
+use App\Http\Controllers\Home\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,8 @@ use App\Http\Controllers\Admin\{DashboardController, KategoriBukuController, Pen
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index']);
+Route::post('/', [HomeController::class, 'search'])->name('search');
 
 Route::group(['prefix' => 'dashboard'], function(){
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
