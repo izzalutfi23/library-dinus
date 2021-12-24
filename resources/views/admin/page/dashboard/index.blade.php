@@ -22,20 +22,20 @@
                 <div class="col-md-6">
                     <div class="card full-height">
                         <div class="card-body">
-                            <div class="card-title">Overall statistics</div>
-                            <div class="card-category">Daily information about statistics in system</div>
+                            <div class="card-title">Keseluruhan Statistik</div>
+                            <div class="card-category">Informasi harian tentang statistik dalam sistem</div>
                             <div class="d-flex flex-wrap justify-content-around pb-2 pt-4">
                                 <div class="px-2 pb-2 pb-md-0 text-center">
                                     <div id="circles-1"></div>
-                                    <h6 class="fw-bold mt-3 mb-0">New Users</h6>
+                                    <h6 class="fw-bold mt-3 mb-0">Buku</h6>
                                 </div>
                                 <div class="px-2 pb-2 pb-md-0 text-center">
                                     <div id="circles-2"></div>
-                                    <h6 class="fw-bold mt-3 mb-0">Sales</h6>
+                                    <h6 class="fw-bold mt-3 mb-0">Pengunjung</h6>
                                 </div>
                                 <div class="px-2 pb-2 pb-md-0 text-center">
                                     <div id="circles-3"></div>
-                                    <h6 class="fw-bold mt-3 mb-0">Subscribers</h6>
+                                    <h6 class="fw-bold mt-3 mb-0">Peminjaman</h6>
                                 </div>
                             </div>
                         </div>
@@ -44,16 +44,16 @@
                 <div class="col-md-6">
                     <div class="card full-height">
                         <div class="card-body">
-                            <div class="card-title">Total income & spend statistics</div>
+                            <div class="card-title">Total Pengunjung & Peminjaman</div>
                             <div class="row py-3">
                                 <div class="col-md-4 d-flex flex-column justify-content-around">
                                     <div>
-                                        <h6 class="fw-bold text-uppercase text-success op-8">Total Income</h6>
-                                        <h3 class="fw-bold">$9.782</h3>
+                                        <h6 class="fw-bold text-uppercase text-success op-8">Total Pengunjung</h6>
+                                        <h3 class="fw-bold">82</h3>
                                     </div>
                                     <div>
-                                        <h6 class="fw-bold text-uppercase text-danger op-8">Total Spend</h6>
-                                        <h3 class="fw-bold">$1,248</h3>
+                                        <h6 class="fw-bold text-uppercase text-danger op-8">Total Peminjaman</h6>
+                                        <h3 class="fw-bold">24</h3>
                                     </div>
                                 </div>
                                 <div class="col-md-8">
@@ -102,10 +102,10 @@
     Circles.create({
         id: 'circles-1',
         radius: 45,
-        value: 60,
+        value: "{{ \App\Models\Buku::all()->count() }}",
         maxValue: 100,
         width: 7,
-        text: 5,
+        text: "{{ \App\Models\Buku::all()->count() }}",
         colors: ['#f1f1f1', '#FF9E27'],
         duration: 400,
         wrpClass: 'circles-wrp',
@@ -117,10 +117,10 @@
     Circles.create({
         id: 'circles-2',
         radius: 45,
-        value: 70,
+        value: "{{ \App\Models\Pengunjung::all()->count() }}",
         maxValue: 100,
         width: 7,
-        text: 36,
+        text: "{{ \App\Models\Pengunjung::all()->count() }}",
         colors: ['#f1f1f1', '#2BB930'],
         duration: 400,
         wrpClass: 'circles-wrp',
@@ -132,10 +132,10 @@
     Circles.create({
         id: 'circles-3',
         radius: 45,
-        value: 40,
+        value: "{{ \App\Models\Pinjam::all()->count() }}",
         maxValue: 100,
         width: 7,
-        text: 12,
+        text: "{{ \App\Models\Pinjam::all()->count() }}",
         colors: ['#f1f1f1', '#F25961'],
         duration: 400,
         wrpClass: 'circles-wrp',

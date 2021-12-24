@@ -20,6 +20,7 @@ Route::post('/', [HomeController::class, 'search'])->name('search');
 
 Route::group(['prefix' => 'dashboard'], function(){
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::post('/search', [DashboardController::class, 'search']);
 });
 
 Route::group(['prefix' => 'buku'], function(){
